@@ -1,7 +1,8 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    lazy = false,
+    event = "BufWritePre", -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -12,7 +13,43 @@ return {
       require "configs.lspconfig"
     end,
   },
-
+  {
+    "folke/trouble.nvim",
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>tt",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Trouble: Diagnostics",
+      },
+      {
+        "<leader>tb",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Trouble: Buffer Diagnostics",
+      },
+      {
+        "<leader>ts",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Trouble: Symbols",
+      },
+      {
+        "<leader>tL",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "Trouble: LSP Definitions / Reference ",
+      },
+      {
+        "<leader>tl",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Trouble: Location List",
+      },
+      {
+        "<leader>tq",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Trouble: Quickfix List",
+      },
+    },
+  },
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
 
