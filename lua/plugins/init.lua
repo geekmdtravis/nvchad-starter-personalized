@@ -2,11 +2,11 @@ return {
   {
     "stevearc/conform.nvim",
     lazy = false,
-    event = "BufWritePre", -- uncomment for format on save
+    event = "BufWritePre", 
     opts = require "configs.conform",
   },
-
-  -- These are some examples, uncomment them if you want to see them work!
+  "mason-org/mason.nvim",
+  "mason-org/mason-lspconfig.nvim",
   {
     "neovim/nvim-lspconfig",
     config = function()

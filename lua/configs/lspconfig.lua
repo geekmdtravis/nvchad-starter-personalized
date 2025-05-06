@@ -1,5 +1,7 @@
+require("mason")
+require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
-local base = require("nvchad.configs.lspconfig").defaults()
+local mason_lspconfig = require "mason-lspconfig"
 
 local servers = {
   "html",
@@ -9,6 +11,12 @@ local servers = {
   "eslint",
 }
 
+mason_lspconfig.setup({
+  ensure_installed = servers,
+  automatic_installation = true,
+})
+
+
 for _, server in ipairs(servers) do
   lspconfig[server].setup {}
 end
@@ -17,7 +25,7 @@ lspconfig.pyright.setup {
   settings = {
     python = {
       analysis = {
-        typeCheckingMode = "basic",
+        typeCheckingMode = "strict",
         autoSearchPaths = true,
         useLibraryCodeForTypes = true,
         diagnosticMode = "workspace",
