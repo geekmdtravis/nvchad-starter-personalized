@@ -56,6 +56,11 @@ require("copilot").setup {
     return vim.fs.dirname(vim.fs.find(".git", { upward = true })[1])
   end,
   should_attach = function(_, _)
+    local logger = {
+      debug = function(msg)
+        print("[DEBUG] " .. msg)
+      end,
+    }
     if not vim.bo.buflisted then
       logger.debug "not attaching, buffer is not 'buflisted'"
       return false
