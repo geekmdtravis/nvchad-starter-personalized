@@ -2,7 +2,7 @@ return {
   {
     "stevearc/conform.nvim",
     lazy = false,
-    event = "BufWritePre", 
+    event = "BufWritePre",
     opts = require "configs.conform",
   },
   "mason-org/mason.nvim",
@@ -11,6 +11,14 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
+    end,
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require "configs.copilot"
     end,
   },
   {
