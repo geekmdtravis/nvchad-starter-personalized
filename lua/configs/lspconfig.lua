@@ -50,4 +50,31 @@ require("mason-lspconfig").setup({
   ensure_installed = servers,
   automatic_installation = true,
 })
-vim.lsp.enable(servers)
+
+if vim.lsp.config then
+  -- Configure pyright with strict settings
+  vim.lsp.config("pyright", {
+    capabilities = require("nvchad.configs.lspconfig").capabilities,
+    on_init = require("nvchad.configs.lspconfig").on_init,
+    settings = {
+      python = {
+        analysis = {
+          typeCheckingMode = "strict",
+          strictParameterNoneValue = true,
+          strictDictionaryInference = true,
+          strictListInference = true,
+          strictSetInference = true,
+        }
+      }
+    }
+  })
+
+  -- Configure other servers with default settings
+  vim.lsp.config("*", {
+    capabilities = require("nvchad.configs.lspconfig").capabilities,
+    on_init = require("nvchad.configs.lspconfig").on_init
+  })
+  
+  -- Enable all servers
+  vim.lsp.enable(servers)
+end
