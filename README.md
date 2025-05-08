@@ -6,6 +6,11 @@ On first run Lazy will install all of your dependencies, except the formatters a
 
 By default, GitHub's CoPilot (through copilot.lua) is supported. To authenticate just type `:Copilot auth`.
 
+## Dependencies
+
+- Neovim 0.11+
+- NodeJS 20+
+
 ## Original Content from the NvChad Starter
 
 **This repo is supposed to used as config by NvChad users!**
