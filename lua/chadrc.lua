@@ -8,7 +8,7 @@ M.nvdash = {
   load_on_startup = true,
 }
 M.base46 = {
-  theme = "material-deep-ocean",
+  theme = "tokyodark",
 
   -- hl_override = {
   -- 	Comment = { italic = true },
