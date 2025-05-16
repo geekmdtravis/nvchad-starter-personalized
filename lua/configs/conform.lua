@@ -4,6 +4,7 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     javascript = { "prettier" },
+    javascriptreact = { "prettier" },
     typescript = { "prettier" },
     typescriptreact = { "prettier" },
     json = { "prettier" },
@@ -19,4 +20,4 @@ local options = {
   },
 }
 
-return optis
+return options
